@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,7 +39,11 @@ namespace 微山ASP.NETCore_LayUI开发框架
             defaultFiles.DefaultFileNames.Clear();
             defaultFiles.DefaultFileNames.Add("index.html");
             app.UseDefaultFiles(defaultFiles);
-            app.UseStaticFiles();
+
+            // 不加这个会找不到.less文件
+            var provider = new FileExtensionContentTypeProvider();
+            provider.Mappings[".less"] = "plain/text";
+            app.UseStaticFiles(new StaticFileOptions { ContentTypeProvider = provider });
 
             if (env.IsDevelopment())
             {
