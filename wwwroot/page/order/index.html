@@ -1,0 +1,21 @@
+<div class="layuimini-container layuimini-page-anim">
+    <div class="layuimini-main">
+        <h1>订单管理 - 根据客户需求完全定制化</h1>
+        <h2>原始JSON数据信息如下</h2>
+        <pre id="pre">
+
+        </pre>
+    </div>
+</div>
+
+<script>
+    
+    layui.$.ajax({
+        url: '/WeatherForecast',
+        type: 'GET',
+        success: function (params) {
+            layui.$("#pre").append(JSON.stringify(params))
+            console.table(params);
+        }
+    })
+</script>
