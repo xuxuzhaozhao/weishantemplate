@@ -25,11 +25,21 @@ namespace 微山ASP.NETCore_LayUI开发框架
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            DefaultFilesOptions defaultFiles = new DefaultFilesOptions();
+            defaultFiles.DefaultFileNames.Clear();
+            defaultFiles.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(defaultFiles);
+            app.UseStaticFiles();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -39,6 +49,7 @@ namespace 微山ASP.NETCore_LayUI开发框架
 
             app.UseAuthorization();
 
+            app.UseMvc();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
