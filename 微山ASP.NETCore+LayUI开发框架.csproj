@@ -5,5 +5,9 @@
     <RootNamespace>微山ASP.NETCore_LayUI开发框架</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
 
 </Project>
