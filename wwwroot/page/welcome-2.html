@@ -1,8 +1,24 @@
 <style>
-    .top-panel {border:1px solid #eceff9;border-radius:5px;text-align:center;}
-    .top-panel > .layui-card-body {height:60px;}
-    .top-panel-number {line-height:60px;font-size:30px;border-right:1px solid #eceff9;}
-    .top-panel-tips {line-height:30px;font-size:12px}
+    .top-panel {
+        border: 1px solid #eceff9;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .top-panel>.layui-card-body {
+        height: 60px;
+    }
+
+    .top-panel-number {
+        line-height: 60px;
+        font-size: 30px;
+        border-right: 1px solid #eceff9;
+    }
+
+    .top-panel-tips {
+        line-height: 30px;
+        font-size: 12px
+    }
 </style>
 <div class="layuimini-container layuimini-page-anim">
     <div class="layuimini-main welcome">
@@ -101,7 +117,7 @@
     </div>
 </div>
 <script>
-    layui.use(['layer','echarts'], function () {
+    layui.use(['layer', 'echarts'], function () {
         var $ = layui.jquery,
             layer = layui.layer,
             echarts = layui.echarts;
@@ -222,11 +238,11 @@
                     center: ['50%', '60%'],
                     roseType: 'radius',
                     data: [
-                        {value: 335, name: '直接访问'},
-                        {value: 310, name: '邮件营销'},
-                        {value: 234, name: '联盟广告'},
-                        {value: 135, name: '视频广告'},
-                        {value: 368, name: '搜索引擎'}
+                        { value: 335, name: '直接访问' },
+                        { value: 310, name: '邮件营销' },
+                        { value: 234, name: '联盟广告' },
+                        { value: 135, name: '视频广告' },
+                        { value: 368, name: '搜索引擎' }
                     ],
                     emphasis: {
                         itemStyle: {
@@ -252,20 +268,20 @@
             dataset: {
                 dimensions: ['product', '2015', '2016', '2017'],
                 source: [
-                    {product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7},
-                    {product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1},
-                    {product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5},
-                    {product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1}
+                    { product: 'Matcha Latte', '2015': 43.3, '2016': 85.8, '2017': 93.7 },
+                    { product: 'Milk Tea', '2015': 83.1, '2016': 73.4, '2017': 55.1 },
+                    { product: 'Cheese Cocoa', '2015': 86.4, '2016': 65.2, '2017': 82.5 },
+                    { product: 'Walnut Brownie', '2015': 72.4, '2016': 53.9, '2017': 39.1 }
                 ]
             },
-            xAxis: {type: 'category'},
+            xAxis: { type: 'category' },
             yAxis: {},
             // Declare several bar series, each will be mapped
             // to a column of dataset.source by default.
             series: [
-                {type: 'bar'},
-                {type: 'bar'},
-                {type: 'bar'}
+                { type: 'bar' },
+                { type: 'bar' },
+                { type: 'bar' }
             ]
         };
 
@@ -293,14 +309,14 @@
                     ['Walnut Brownie', 55.2, 67.1, 69.2, 72.4, 53.9, 39.1]
                 ]
             },
-            xAxis: {type: 'category'},
-            yAxis: {gridIndex: 0},
-            grid: {top: '55%'},
+            xAxis: { type: 'category' },
+            yAxis: { gridIndex: 0 },
+            grid: { top: '55%' },
             series: [
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
-                {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
+                { type: 'line', smooth: true, seriesLayoutBy: 'row' },
                 {
                     type: 'pie',
                     id: 'pie',
