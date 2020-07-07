@@ -9,13 +9,38 @@
 </div>
 
 <script>
-    
-    layui.$.ajax({
+    // $(document).ready(function () {
+    //     Http.get('/WeatherForecast')
+    //         .then(res => {
+    //             $("#layui-code").html('').append(JSON.stringify(res));
+    //             console.log(res);
+    //         })
+    //         .catch(err => { console.table(err); });
+    // })
+
+    $.ajax({
         url: '/WeatherForecast',
         type: 'GET',
+        headers: { Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMSIsImV4cCI6MTU5NDA5MTk1OCwiaXNzIjoid2Vpc2hhbi50ZWNoIiwiYXVkIjoiV2ViQXBpIn0.ua2XetM0L7icXiyiv8d3ZjY6csOioAO-hSdmB69HkVA" },
         success: function (params) {
             layui.$("#layui-code").html('').append(params);
             console.table(params);
+        },
+        statusCode:{
+            401:function(){
+                layui.$("#layui-code").html('').append("未登录用户没有权限调用此接口");
+            }
         }
     })
+
+    // function getToken() {
+    //     //return storage.getItem(_key);
+    //     return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiMSIsImV4cCI6MTU5NDA4OTgxOSwiaXNzIjoid2Vpc2hhbi50ZWNoIiwiYXVkIjoiV2ViQXBpIn0.wyF6uHi8R2Z57FubHtMDrNIrQR6y6OW1em4xalrBSEA"
+    // }
+
+    // function setAuthHeader(xhr) {
+    //     var token = getToken();
+    //     if (!token) return;
+    //     xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+    // }
 </script>
